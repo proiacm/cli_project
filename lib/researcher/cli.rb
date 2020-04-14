@@ -3,9 +3,9 @@ class Cli
   def start 
     puts "Welcome to the COVID-19 statistics CLI!"
     menu
-    input = gets.strip.downcase
-    Api.get_data(input)
-      while input != "exit"
+    country = gets.strip.downcase
+    Api.get_data(country)
+      while country != "exit"
         if 
     end
   end

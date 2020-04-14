@@ -1,14 +1,14 @@
-class State
+class Country
   
-  attr_accessor :name, :c_cases, :deaths, :recovered
+  attr_accessor :name, :cases, :deaths, :recovered
   @@all = []
   
-  def initialize(name:, c_cases:, deaths:, recovered:)
+  def initialize(name:, cases:, deaths:, recovered:)
     @name = name
-    @c_cases = c_cases
+    @cases = cases
     @deaths = deaths
     @recovered = recovered
-    @@all << self unless @@all.include?(self)
+    @@all << self 
   end
   
   def self.all 

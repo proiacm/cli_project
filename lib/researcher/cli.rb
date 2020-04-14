@@ -1,19 +1,22 @@
 class Cli 
   
   def start 
-    puts "Welcome to the COVID-19 USA statistics CLI!"
-    puts "Type the name of a state to view stats or type 'exit' to exit."
-    @state = gets.strip.downcase
-    Api.get_data
-    print_stats(state)
+    puts "Welcome to the COVID-19 statistics CLI!"
+    puts "Type the name of a country"
+    @country = gets.strip.downcase
+    Api.get_data(@country)
+    print_stats(Country.all)
+ 
+    
+   
     
   end
   
-  def print_stats(state)
-    puts "COVID-19 Statistics for #{state.capitalize}:"
+  def print_stats(response)
+    puts "COVID-19 Statistics for :"
     puts " "
-    State.all.each do |s, i|
-      puts "#{i}. #{c_cases}"
+    response.each.with_index(1) do |s, i|
+      puts "#{i}. #{s.cases}"
     end
   end
 end 

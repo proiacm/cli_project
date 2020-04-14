@@ -1,10 +1,12 @@
+#COVID-19 Data CLI
+
 ## Overview 
 CLI which allows user to retrieve up to date COVID-19 data by country. 
 
 ##Prerequisites 
-gem install pry
-gem install httparty
-gem install json
+- gem install pry
+- gem install httparty
+- gem install json
 
 
 ##License 

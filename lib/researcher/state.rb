@@ -1,4 +1,4 @@
-class Country 
+class State
   
   attr_accessor :name, :c_cases, :deaths, :recovered
   @@all = []

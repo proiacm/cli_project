@@ -6,7 +6,7 @@ class Cli
     country = gets.strip.downcase
     Api.get_data(country)
       while country != "exit"
-        if 
+      
     end
   end
   

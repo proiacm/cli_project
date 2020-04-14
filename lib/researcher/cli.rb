@@ -1,6 +1,6 @@
 class Cli 
   
   def start 
-    puts 
+    puts "Here"
   end 
 end 

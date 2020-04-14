@@ -1,5 +1,5 @@
 Greet user
-Introduce options - select a country to view data for or exit
-After country is chosen, give open to view confirmed cases or deaths
+Introduce options: list states allow user to select a state or exit
+After state is chosen, print confirmed, recovered, deaths
 
 

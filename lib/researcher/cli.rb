@@ -1,8 +1,11 @@
 class Cli 
   
   def start 
+    puts " "
     puts "Welcome to the COVID-19 statistics CLI!"
+    puts " "
     puts "Type the name of a country to view data."
+    puts " "
     @country = gets.strip.downcase
     Api.get_data(@country)
     print_stats(Country.all)

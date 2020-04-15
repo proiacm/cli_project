@@ -2,14 +2,18 @@ class Api
   
   def self.get_data(country)
     url = "https://coronavirus-19-api.herokuapp.com/countries/#{country}"
-    response = HTTParty.get(url)
+    response = Net::HTTP.get(URI(url))
+      country = JSON.parse(response)
+    #stats = country.transform_values(&:to_s)    
     
-    stats = response.map {|k,v| { k.to_s => v.to_s } }
+
     
-    stats.each do |c|
-      Country.new(name: c["country"], c_case: c["cases"], death: c["deaths"], recover: c["recovered"])
+    #binding.pry
     
-    end
-    binding.pry
+    #stats.each do |c|
+     stats = Country.new(name: country["country"], c_case: country["cases"], death: country["deaths"], recover: country["recovered"])
+    
+    
+  
   end
 end 

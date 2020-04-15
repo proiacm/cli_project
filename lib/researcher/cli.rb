@@ -9,6 +9,7 @@ class Cli
     @country = gets.strip.downcase
     Api.get_data(@country)
     print_stats(Country.all)
+    binding.pry
     prompt
   end
   

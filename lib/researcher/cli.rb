@@ -33,7 +33,7 @@ class Cli
     puts " "
     @country = gets.strip.downcase
       while @country != 'exit'
-    Api.get_data(@country) if !Country.find_by_name(@country)
+    Api.get_data(@country) if !Country.find_by_name(@country.capitalize)
     print_stats(Country.all)
     end
     puts " "

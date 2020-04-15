@@ -4,15 +4,10 @@ class Cli
     puts "Welcome to the COVID-19 statistics CLI!"
     puts "Type the name of a country to view data."
     @country = gets.strip.downcase
-    
-    Country.find_by_name(@country)
-    #binding.pry
     Api.get_data(@country)
-    
     print_stats(Country.all)
- 
-    
-   
+    prompt 
+    input = gets.strip.downcase
     
   end
   
@@ -28,5 +23,11 @@ class Cli
       puts "\u2022 Number of deaths: #{s.deaths}"
       puts " "
     end
+  end
+  
+  def prompt
+    puts " "
+    puts "Type the name of another country to view it's date or type 'exit' to exit."
+    puts " "
   end
 end 

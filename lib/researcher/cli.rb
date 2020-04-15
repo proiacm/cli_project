@@ -9,13 +9,7 @@ class Cli
     @country = gets.strip.downcase
     Api.get_data(@country)
     print_stats(Country.all)
-    prompt 
-    input = gets.strip.downcase
-    while input != 'exit'
-      if input == @country
-        print_stats(Country.find_by_name(@country))
-      end
-    end
+    prompt
   end
   
   def print_stats(stats)
@@ -35,6 +29,14 @@ class Cli
   def prompt
     puts " "
     puts "Type the name of another country to view it's data or type 'exit' to exit."
+    puts " "
+    @country = gets.strip.downcase
+      while @country != 'exit'
+    Api.get_data(@country) if !Country.find_by_name(@country)
+    print_stats(Country.all)
+    end
+    puts " "
+    puts "Remember to wash your hands!"
     puts " "
   end
 end 

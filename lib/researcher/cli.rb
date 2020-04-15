@@ -17,12 +17,16 @@ class Cli
   end
   
   def print_stats(stats)
-    puts "COVID-19 Statistics for #{@country.capitalize}:"
     puts " "
+    puts "COVID-19 statistics for #{@country.capitalize}:"
+    puts " "
+    date = Time.now.strftime("%m/%d/%Y")
     stats.each do |s|
-      puts "Number of cases: #{s.cases}"
-      puts "Number of recoveries: #{s.recovered}"
-      puts "Number of deaths: #{s.deaths}"
+      puts "\u2022 New cases for #{date}: #{s.today_cases}"
+      puts "\u2022 Total cases: #{s.cases}"
+      puts "\u2022 Cases recovered: #{s.recovered}"
+      puts "\u2022 Number of deaths: #{s.deaths}"
+      puts " "
     end
   end
 end 

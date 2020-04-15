@@ -1,10 +1,11 @@
 class Country
   
-  attr_accessor :name, :cases, :deaths, :recovered
+  attr_accessor :name, :today_cases, :cases, :deaths, :recovered
   @@all = []
   
-  def initialize(name:, cases:, deaths:, recovered:)
+  def initialize(name:, today_cases:, cases:, deaths:, recovered:)
     @name = name
+    @today_cases = today_cases
     @cases = cases
     @deaths = deaths
     @recovered = recovered
@@ -18,7 +19,7 @@ class Country
 
   
   def self.find_by_name(name)
-    self.all.find {|n| n.name == name}
+    @@all.find {|n| n.name == name}
   end
   
   def self.find_or_create_by_name(name)

@@ -8,7 +8,11 @@ class Cli
     print_stats(Country.all)
     prompt 
     input = gets.strip.downcase
-    
+    while input != 'exit'
+      if input == @country
+        print_stats(Country.find_by_name(@country))
+      end
+    end
   end
   
   def print_stats(stats)
@@ -27,7 +31,7 @@ class Cli
   
   def prompt
     puts " "
-    puts "Type the name of another country to view it's date or type 'exit' to exit."
+    puts "Type the name of another country to view it's data or type 'exit' to exit."
     puts " "
   end
 end 

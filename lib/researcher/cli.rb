@@ -17,9 +17,9 @@ class Cli
     puts "COVID-19 Statistics for #{@country.capitalize}:"
     puts " "
     stats.each.with_index(1) do |s, i|
-      puts "#{i}. #{s.c_case}"
-      puts "#{i}. #{s.recover}"
-      puts "#{i}. #{s.deaths}"
+      puts "#{i}. Number of cases: #{s.cases}"
+      puts "#{i}. Number of recoveries: #{s.recovered}"
+      puts "#{i}. Number of deaths: #{s.deaths}"
     end
   end
 end 

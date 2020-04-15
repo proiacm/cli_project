@@ -1,7 +1,7 @@
 #COVID-19 USA Data CLI
 
 ## Overview 
-CLI which allows user to retrieve up to date COVID-19 data by state. 
+CLI which allows user to retrieve COVID-19 data by country. 
 
 ##Prerequisites 
 - gem install pry

@@ -1,5 +1,5 @@
 Greet user
-Introduce options: list states allow user to select a state or exit
-After state is chosen, print confirmed, recovered, deaths
+Ask to input country 
+After country is entered, print confirmed, recovered, deaths(?)
 
 

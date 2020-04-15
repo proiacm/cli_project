@@ -1,17 +1,30 @@
 class Country
   
-  attr_accessor :name, :c_case, :death, :recover
+  attr_accessor :name, :cases, :deaths, :recovered
   @@all = []
   
-  def initialize(name:, c_case:, death:, recover:)
+  def initialize(name:, cases:, deaths:, recovered:)
     @name = name
-    @c_case = c_case
-    @death = death
-    @recover = recover
+    @cases = cases
+    @deaths = deaths
+    @recovered = recovered
     @@all << self 
   end
   
   def self.all 
     @@all
+  end
+  
+  def self.find_by_name(name)
+    self.all.find {|n| n.name == name}
+  end
+  
+  def self.find_or_create_by_name(name)
+    found = self.find_by_name(name)
+     if found                                    
+      found                                   
+     else
+      self.create(name)
+    end
   end
 end 

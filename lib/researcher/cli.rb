@@ -2,7 +2,7 @@ class Cli
   
   def start 
     puts " "
-    puts "Welcome to the COVID-19 statistics CLI!"
+    puts "Welcome to the COVID-19 statistics CLI."
     puts " "
     puts "Type the name of a country to view data."
     puts " "
@@ -17,14 +17,14 @@ class Cli
       while @c_name != 'exit'
         if @c_name == 'search'
           puts " "
-          puts "What country do you want to see?"
+          puts "What other country do you want to see?"
           puts " "
           @c_name = gets.strip.downcase
           Api.get_data(@c_name) if !Country.find_by_name(@c_name.capitalize)
           Country.find_by_name(@c_name.capitalize) ? print_stats(Country.find_by_name(@c_name.capitalize)) : error_message
         else 
           puts " "
-          puts "Please try again!"
+          puts "That was not a valid response. Please try again!"
           puts " "
         end
      prompt
@@ -49,6 +49,7 @@ class Cli
 
   end
   
+  
   def prompt
     puts " "
     puts "Type 'search' to search for another country's data or type 'exit' to exit."
@@ -57,7 +58,6 @@ class Cli
   
   def error_message
     puts " "
-    puts "That's not a country, try again"
-    puts " "
+    puts "I only know countries found on Earth. Try again."
   end
 end 

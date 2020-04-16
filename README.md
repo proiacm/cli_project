@@ -8,7 +8,7 @@ Prerequisites
 - gem install httparty
 - gem install json
 
-To run: ruby bin/cvdata
+- To run: ruby bin/cvdata
 
 
 License 

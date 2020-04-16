@@ -18,22 +18,22 @@ class Cli
       while @input != 'exit'
         if @input == 'search'
           puts " "
-          puts "Type the name of a country to view data."
+          puts "What country do you want to see?"
           puts " "
           @input = gets.strip.downcase
           Api.get_data(@input) if !Country.find_by_name(@input.capitalize)
-          print_stats(Country.all)
+          print_stats(@input)
         else 
           puts " "
-          puts "Oops! That is not a valid country. "
+          puts "Please try again."
           puts " "
         end
-    prompt
-    @input = gets.strip.downcase
+     prompt
+     @input = gets.strip.downcase
+   end
     puts " "
     puts "Remember to wash your hands!"
     puts " "
-  end 
  end
   
   def print_stats(stats)

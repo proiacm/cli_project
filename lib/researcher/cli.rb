@@ -21,11 +21,11 @@ class Cli
           puts "What country do you want to see?"
           puts " "
           @input = gets.strip.downcase
-          Api.get_data(@input) if !Country.find_by_name(@input.capitalize)
-          print_stats(@input)
+          Api.get_data(@input) if !Country.find_by_country(@input.capitalize)
+          print_stats(Country.all)
         else 
           puts " "
-          puts "Please try again."
+          puts "Please try again!"
           puts " "
         end
      prompt

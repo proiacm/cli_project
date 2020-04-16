@@ -16,7 +16,7 @@ class Country
     @@all
   end
   
-  def self.find_by_country(country)
-    @@all.find {|c| c.name == country}
+  def self.find_by_name(name)
+    @@all.find {|c| c.name == name}
   end
 end 

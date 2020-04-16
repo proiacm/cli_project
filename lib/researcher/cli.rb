@@ -20,9 +20,9 @@ class Cli
           puts "What country do you want to see?"
           puts " "
           @c_name = gets.strip.downcase
-          Api.get_data(@c_name) if !Country.find_by_country(@c_name.capitalize)
+          Api.get_data(@c_name) if !Country.find_by_name(@c_name.capitalize)
           binding.pry
-          print_stats(Country.find_by_country(@c_name.capitalize))
+          print_stats(Country.find_by_name(@c_name.capitalize))
         else 
           puts " "
           puts "Please try again!"

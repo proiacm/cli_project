@@ -6,24 +6,39 @@ class Cli
     puts " "
     puts "Type the name of a country to view data."
     puts " "
-    @country = gets.strip.downcase
-    Api.get_data(@country)
+    
+    
+    @input = gets.strip.downcase
+    Api.get_data(@input)
     print_stats(Country.all)
+    
     prompt
-      @country = gets.strip.downcase
-      while @country != 'exit'
-    Api.get_data(@country) if !Country.find_by_name(@country.capitalize)
+    @input = gets.strip.downcase
+    
+      while @input != 'exit'
+        if @input == 'search'
+          puts " "
+          puts "Type the name of a country to view data."
+          puts " "
+          @input = gets.strip.downcase
+          Api.get_data(@input) if !Country.find_by_name(@input.capitalize)
+          print_stats(Country.all)
+        else 
+          puts " "
+          puts "Oops! That is not a valid country. "
+          puts " "
+        end
     prompt
-    end
+    @input = gets.strip.downcase
     puts " "
     puts "Remember to wash your hands!"
     puts " "
-  end
- 
+  end 
+ end
   
   def print_stats(stats)
     puts " "
-    puts "COVID-19 statistics for #{@country.capitalize}:"
+    puts "COVID-19 statistics for #{@input.capitalize}:"
     puts " "
     date = Time.now.strftime("%m/%d/%Y")
     stats.each do |s|
@@ -37,7 +52,7 @@ class Cli
   
   def prompt
     puts " "
-    puts "Type the name of another country to view it's data or type 'exit' to exit."
+    puts "Type 'search' to search for another country's data or type 'exit' to exit."
     puts " "
   end
 end 

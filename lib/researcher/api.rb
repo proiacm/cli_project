@@ -4,9 +4,6 @@ class Api
     url = "https://coronavirus-19-api.herokuapp.com/countries/#{country}"
     response = Net::HTTP.get(URI(url))
      data = JSON.parse(response)
-    
-    # if country != "Country not found"
      stats = Country.new(name: data["country"], today_cases: data["todayCases"], cases: data["cases"], deaths: data["deaths"], recovered: data["recovered"])
-    #end
   end
 end 

@@ -9,7 +9,7 @@ class Cli
     
     @c_name = gets.strip.downcase
     Api.get_data(@c_name)
-    print_stats(Country.all)
+    Country.find_by_name(@c_name.capitalize) ? print_stats(Country.find_by_name(@c_name.capitalize)) : error_message
     
     prompt
     @c_name = gets.strip.downcase
@@ -21,8 +21,7 @@ class Cli
           puts " "
           @c_name = gets.strip.downcase
           Api.get_data(@c_name) if !Country.find_by_name(@c_name.capitalize)
-          binding.pry
-          print_stats(Country.find_by_name(@c_name.capitalize))
+          Country.find_by_name(@c_name.capitalize) ? print_stats(Country.find_by_name(@c_name.capitalize)) : error_message
         else 
           puts " "
           puts "Please try again!"
@@ -36,23 +35,29 @@ class Cli
     puts " "
  end
   
-  def print_stats(stats)
+  def print_stats(country)
     puts " "
-    puts "COVID-19 statistics for #{@c_name.capitalize}:"
+    puts "COVID-19 statistics for #{country.name}:"
     puts " "
     date = Time.now.strftime("%m/%d/%Y")
-    stats.each do |s|
-      puts "\u2022 New cases for #{date}: #{s.today_cases}"
-      puts "\u2022 Total cases: #{s.cases}"
-      puts "\u2022 Cases recovered: #{s.recovered}"
-      puts "\u2022 Number of deaths: #{s.deaths}"
+    
+      puts "\u2022 New cases for #{date}: #{country.today_cases}"
+      puts "\u2022 Total cases: #{country.cases}"
+      puts "\u2022 Cases recovered: #{country.recovered}"
+      puts "\u2022 Number of deaths: #{country.deaths}"
       puts " "
-    end
+
   end
   
   def prompt
     puts " "
     puts "Type 'search' to search for another country's data or type 'exit' to exit."
+    puts " "
+  end
+  
+  def error_message
+    puts " "
+    puts "That's not a country, try again"
     puts " "
   end
 end 

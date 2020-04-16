@@ -8,6 +8,8 @@ Prerequisites
 - gem install httparty
 - gem install json
 
+To run: ruby bin/cvdata
+
 
 License 
 Copyright 2020 proiacm

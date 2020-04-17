@@ -8,7 +8,7 @@ class Cli
     puts " "
     @c_name = gets.strip.downcase
     Api.get_data(@c_name)
-    Country.find_by_name(@c_name.capitalize) ? print_stats(Country.find_by_name(@c_name.capitalize)) : error_message
+    Country.find_by_name(@c_name) ? print_stats(Country.find_by_name(@c_name)) : error_message
     prompt
     @c_name = gets.strip.downcase
       while @c_name != 'exit'
@@ -17,8 +17,8 @@ class Cli
           puts "What country do you want to research?"
           puts " "
           @c_name = gets.strip.downcase
-          Api.get_data(@c_name) if !Country.find_by_name(@c_name.capitalize)
-          Country.find_by_name(@c_name.capitalize) ? print_stats(Country.find_by_name(@c_name.capitalize)) : error_message
+          Api.get_data(@c_name) if !Country.find_by_name(@c_name)
+          Country.find_by_name(@c_name) ? print_stats(Country.find_by_name(@c_name)) : error_message
         else 
           puts " "
           puts "That was not a valid response. Please try again!"
@@ -34,7 +34,7 @@ class Cli
   
   def print_stats(country)
     puts " "
-    puts "COVID-19 statistics for #{country.name}:"
+    puts "COVID-19 statistics for #{country.name.upcase}:"
     puts " "
     date = Time.now.strftime("%m/%d/%Y")
       puts "\u2022 New cases for #{date.colorize(:yellow)}: #{country.today_cases.to_s.colorize(:yellow)}"

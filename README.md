@@ -7,6 +7,7 @@ Prerequisites
 - gem install pry
 - gem install httparty
 - gem install json
+- gem install colorize
 
 - To run: ruby bin/cvdata
 

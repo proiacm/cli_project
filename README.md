@@ -2,6 +2,11 @@
 
 ## Overview 
 CLI which allows user to retrieve COVID-19 data by country. 
+Stats available: 
+1. New cases as of the current date
+2. Cases total
+3. Recorded recoveries
+4. Total deaths
 
 Prerequisites 
 - gem install pry

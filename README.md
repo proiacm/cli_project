@@ -1,4 +1,4 @@
-#COVID-19 USA Data CLI
+#COVID-19 Data CLI
 
 ## Overview 
 CLI which allows user to retrieve COVID-19 data by country. 
